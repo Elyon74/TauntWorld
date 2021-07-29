@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Water1 : MonoBehaviour
+public class Water : MonoBehaviour
 {
     private Transform PlayerSpawn;
     public Players players;
