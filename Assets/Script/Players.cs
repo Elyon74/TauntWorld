@@ -18,6 +18,7 @@ public class Players : MonoBehaviour
     public Rigidbody2D RigidPlayer;
     public BoxCollider2D ColliderPlayer;
     public SpriteRenderer PlayerSpriteRenderer;
+    AudioSource jump;
 
     private void Awake()
     {
@@ -37,6 +38,7 @@ public class Players : MonoBehaviour
         Level(CurrentPlayerLevel);
         Gold(CurrentPlayerGold);
         Jump(jumpforce);
+        jump = GetComponent<AudioSource>();
 
         void HP(float CurrentPlayerHP)
         {
@@ -89,6 +91,7 @@ public class Players : MonoBehaviour
             if (Input.GetButtonDown("Jump") && isGrounded)
             {
                 isJumping = true;
+                jump.Play();
             }
         }
 
