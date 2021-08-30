@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Zone2 : MonoBehaviour
+public class ReturnLevel01 : MonoBehaviour
 {
-    private Transform PlayerSpawn2;
+    private Transform PlayerSpawn3;
     public Players players;
     void Start()
     {
@@ -21,8 +21,8 @@ public class Zone2 : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            SceneManager.LoadScene(2);
-            collision.transform.position = PlayerSpawn2.position;
+            SceneManager.LoadScene(1);
+            collision.transform.position = PlayerSpawn3.position;
         }
     }
 }

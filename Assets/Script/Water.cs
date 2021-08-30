@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Water : MonoBehaviour
 {
@@ -16,10 +17,9 @@ public class Water : MonoBehaviour
     {
         if (players.CurrentPlayerHP == 0)
         {
-            Application.Quit();
+            SceneManager.LoadScene(3);
         }
     }
-
     private void Awake()
     {
         PlayerSpawn = GameObject.FindGameObjectWithTag("PlayerSpawn").transform;
@@ -28,8 +28,8 @@ public class Water : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.transform.position = PlayerSpawn.position;
-            players.CurrentPlayerHP -= 1;
+                collision.transform.position = PlayerSpawn.position;
+                players.CurrentPlayerHP -= 1;
         }
     }
 }

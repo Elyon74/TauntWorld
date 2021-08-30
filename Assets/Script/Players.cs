@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Players : MonoBehaviour
 {
@@ -62,6 +63,7 @@ public class Players : MonoBehaviour
                 Destroy(HP3);
                 Destroy(HP2);
                 Destroy(HP1);
+                SceneManager.LoadScene(0);
             }
         }
 
@@ -71,7 +73,6 @@ public class Players : MonoBehaviour
             {
                 GameObject SpriteLvl1 = GameObject.Find("SpriteLvl1");
                 Destroy(SpriteLvl1);
-                // Ici on spawn le GameObject Lvl2 idem pour les prochains level
             }
             if (CurrentPlayerLevel == 3)
             {
@@ -108,7 +109,6 @@ public class Players : MonoBehaviour
         {
             if (PlayerSpriteRenderer != null)
             {
-                // flip the sprite
                 PlayerSpriteRenderer.flipX = true;
             }
         }
@@ -117,13 +117,17 @@ public class Players : MonoBehaviour
         {
             if (PlayerSpriteRenderer != null)
             {
-                // flip the sprite
                 PlayerSpriteRenderer.flipX = false;
 
             }
         }
 
-         void PlayerMove(float _horizontalMovement)
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(4);
+        }
+
+        void PlayerMove(float _horizontalMovement)
         {
                 Vector3 targetVelocity = new Vector2(_horizontalMovement, RigidPlayer.velocity.y);
                 RigidPlayer.velocity = Vector3.SmoothDamp(RigidPlayer.velocity, targetVelocity, ref velocity, .05f);
