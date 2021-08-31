@@ -9,12 +9,12 @@ public class Gold : MonoBehaviour
     AudioSource coin;
     void Start()
     {
-
+        coin = GetComponent<AudioSource>();
     }
 
     void Update()
     {
-        coin = GetComponent<AudioSource>();
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
