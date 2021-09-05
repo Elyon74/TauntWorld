@@ -6,11 +6,11 @@ public class Locked01 : MonoBehaviour
 {
 
     public RabbitCell01 RabbitCell001;
-    AudioSource rabbitinthescene;
+    public GrotteEnter01 Grotte01;
 
     void Start()
     {
-        rabbitinthescene = GetComponent<AudioSource>();
+
     }
 
 
@@ -18,8 +18,8 @@ public class Locked01 : MonoBehaviour
     {
         if (RabbitCell001.AllRabbitInTheCell == true)
         {
-            rabbitinthescene.Play();
-            Destroy(gameObject, (float)1);
+            Grotte01.rabbitinthescene.Play();
+            Destroy(gameObject, (float)0.3);
         }
     }
 }

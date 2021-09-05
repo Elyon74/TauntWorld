@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Water : MonoBehaviour
+public class Lava : MonoBehaviour
 {
-    private Transform PlayerSpawn;
+
+    public Transform PlayerSpawn3;
     public Players players;
-    AudioSource Damage;
+    AudioSource DamageLava;
 
     void Start()
     {
-        Damage = GetComponent<AudioSource>();
+        DamageLava = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -21,17 +22,19 @@ public class Water : MonoBehaviour
             SceneManager.LoadScene(0);
         }
     }
+
     private void Awake()
     {
-        PlayerSpawn = GameObject.FindGameObjectWithTag("PlayerSpawn").transform;
+        PlayerSpawn3 = GameObject.FindGameObjectWithTag("PlayerSpawn").transform;
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-                collision.transform.position = PlayerSpawn.position;
-                players.CurrentPlayerHP -= 1;
-            Damage.Play();
+            collision.transform.position = PlayerSpawn3.position;
+            players.CurrentPlayerHP -= 1;
+            DamageLava.Play();
 
         }
     }

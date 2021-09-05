@@ -7,7 +7,8 @@ public class GrotteEnter01 : MonoBehaviour
 {
     
     public RabbitCell01 RabbitCell001;
-    private Transform PlayerSpawn4;
+    public AudioSource rabbitinthescene;
+    private Transform PlayerSpawn3;
 
     void Start()
     {
@@ -26,7 +27,7 @@ public class GrotteEnter01 : MonoBehaviour
             if (collision.CompareTag("Player"))
             {
                SceneManager.LoadScene(5);
-               collision.transform.position = PlayerSpawn4.position;
+               collision.transform.position = PlayerSpawn3.position;
             }
         }
     }

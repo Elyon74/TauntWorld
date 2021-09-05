@@ -124,7 +124,7 @@ public class Players : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Escape))
         {
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(2);
         }
 
         void PlayerMove(float _horizontalMovement)

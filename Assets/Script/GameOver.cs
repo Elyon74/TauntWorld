@@ -8,7 +8,7 @@ public class GameOver : MonoBehaviour
 
     public void NewGame()
     {
-        SceneManager.LoadScene(1);  // On charge la scene avec l' index 1 dans le buildsettings du projet
+        SceneManager.LoadScene(3);  // On charge la scene avec l' index 1 dans le buildsettings du projet
     }
     public void ExitDeadGame()
     {
