@@ -24,7 +24,7 @@ public class Gold : MonoBehaviour
             players.CurrentPlayerGold += 10;
             print ("Gold Actuel du joueur :" + players.CurrentPlayerGold);
             coin.Play();
-            Destroy(gameObject, (float)0.4);
+            Destroy(gameObject, (float)0.3);
             Instantiate(numberofcoin, new Vector2(-9, 5), Quaternion.identity);
         }
     }
