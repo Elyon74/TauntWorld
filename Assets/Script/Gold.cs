@@ -7,6 +7,7 @@ public class Gold : MonoBehaviour
     public Players players;
     public GameObject numberofcoin;
     AudioSource coin;
+
     void Start()
     {
         coin = GetComponent<AudioSource>();
@@ -25,7 +26,6 @@ public class Gold : MonoBehaviour
             coin.Play();
             Destroy(gameObject, (float)0.4);
             Instantiate(numberofcoin, new Vector2(-9, 5), Quaternion.identity);
-
         }
     }
 }
