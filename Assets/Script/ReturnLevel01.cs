@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ReturnLevel01 : MonoBehaviour
 {
-    private Transform PlayerSpawn;
+    private Transform PlayerSpawnbis;
     public Players players;
     void Start()
     {
@@ -22,7 +22,7 @@ public class ReturnLevel01 : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             SceneManager.LoadScene(3);
-            collision.transform.position = PlayerSpawn.position;
+            collision.transform.position = PlayerSpawnbis.position;
         }
     }
 }

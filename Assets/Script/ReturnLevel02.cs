@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ReturnLevel02 : MonoBehaviour
 {
-    private Transform PlayerSpawn2;
+    private Transform PlayerSpawn2bis;
     public Players players;
     public RabbitCell01 RabbitCell001;
     public GameObject Rabbit;
@@ -26,7 +26,7 @@ public class ReturnLevel02 : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             SceneManager.LoadScene(4);
-            collision.transform.position = PlayerSpawn2.position;
+            collision.transform.position = PlayerSpawn2bis.position;
             RabbitCell001.AllRabbitInTheCell = true;
             Destroy(Rabbit);
             Destroy(Rabbit2);

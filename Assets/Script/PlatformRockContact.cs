@@ -1,28 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class Grotte2 : MonoBehaviour
+public class PlatformRockContact : MonoBehaviour
 {
-    private Transform PlayerSpawn4;
     public Players players;
+    public Stalactite1 stalactite1;
+    public bool ContactStalac1;
+
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            SceneManager.LoadScene(6);
-            collision.transform.position = PlayerSpawn4.position;
+            if (ContactStalac1 == false)
+            {
+                stalactite1.Stalactite01.WakeUp();
+                ContactStalac1 = true;
+            }
         }
     }
 }

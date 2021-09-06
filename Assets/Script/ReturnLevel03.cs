@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Grotte2 : MonoBehaviour
+public class ReturnLevel03 : MonoBehaviour
 {
-    private Transform PlayerSpawn4;
+
+    private Transform PlayerSpawn3bis;
     public Players players;
+
     void Start()
     {
         
@@ -21,8 +23,8 @@ public class Grotte2 : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            SceneManager.LoadScene(6);
-            collision.transform.position = PlayerSpawn4.position;
+            SceneManager.LoadScene(5);
+            collision.transform.position = PlayerSpawn3bis.position;
         }
     }
 }
