@@ -25,7 +25,6 @@ public class Gold : MonoBehaviour
             players.CurrentPlayerGold += 10;
             print ("Gold Actuel du joueur :" + players.CurrentPlayerGold);
             coin.Play();
-            GoldNumber.SetCountText();
             Destroy(gameObject, (float)0.3);
         }
     }

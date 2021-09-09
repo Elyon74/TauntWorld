@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class GoldNumber : MonoBehaviour
 {
 
-    public Players players;
     public Text GoldUI;
 
     void Start()
@@ -19,9 +18,4 @@ public class GoldNumber : MonoBehaviour
 
     }
 
-    public void SetCountText()
-    {
-        GoldUI = GameObject.Find("Text1").GetComponent<Text>();
-        GoldUI.text = players.CurrentPlayerGold.ToString();
-    }
 }

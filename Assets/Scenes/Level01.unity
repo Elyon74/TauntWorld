@@ -2341,7 +2341,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ddf3bd8fdc2ad14383c289ea0d53ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players: {fileID: 2132213139}
   GoldUI: {fileID: 1660876989}
 --- !u!114 &1660876989
 MonoBehaviour:
@@ -2376,7 +2375,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &1660876990
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3369,6 +3368,7 @@ MonoBehaviour:
   RigidPlayer: {fileID: 2132213140}
   ColliderPlayer: {fileID: 2132213141}
   PlayerSpriteRenderer: {fileID: 2132213137}
+  GoldNumber: {fileID: 1660876988}
 --- !u!50 &2132213140
 Rigidbody2D:
   serializedVersion: 4

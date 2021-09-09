@@ -487,6 +487,7 @@ MonoBehaviour:
   RigidPlayer: {fileID: 293282847}
   ColliderPlayer: {fileID: 293282846}
   PlayerSpriteRenderer: {fileID: 293282849}
+  GoldNumber: {fileID: 1498504204}
 --- !u!212 &293282849
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1873,7 +1874,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ddf3bd8fdc2ad14383c289ea0d53ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players: {fileID: 293282848}
   GoldUI: {fileID: 1498504205}
 --- !u!114 &1498504205
 MonoBehaviour:
@@ -1908,7 +1908,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &1498504206
 CanvasRenderer:
   m_ObjectHideFlags: 0
