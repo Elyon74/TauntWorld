@@ -12,15 +12,19 @@ public class Players : MonoBehaviour
     public int CurrentPlayerGold = 0;
     public int MaxPlayerLevel = 99;
     public int CurrentPlayerLevel = 1;
+    public int CurrentPlayerExp = 0;
     public float walkspeed;
     public float jumpforce;
     public bool isJumping;
     public bool isGrounded;
+    public bool attack;
     private Vector3 velocity = Vector3.zero;
     public Rigidbody2D RigidPlayer;
     public BoxCollider2D ColliderPlayer;
     public SpriteRenderer PlayerSpriteRenderer;
     public GoldNumber GoldNumber;
+    public ExpNumber ExpNumber;
+    public Sword01 Sword01;
     AudioSource jump;
 
     // Vector 2 = Axe vertical, Vector 3 = Axe horizontal
@@ -35,6 +39,7 @@ public class Players : MonoBehaviour
         print("Level Actuel du joueur : " + CurrentPlayerLevel);
         print("HP Actuel du joueur : " + CurrentPlayerHP);
         print("Gold Actuel du joueur : " + CurrentPlayerGold);
+        print("Exp Actuel du joueur : " + CurrentPlayerExp);
     }
 
     void Update()
@@ -47,6 +52,7 @@ public class Players : MonoBehaviour
 
         float horizontalMovement = Input.GetAxis("Horizontal") * walkspeed * Time.deltaTime;
         PlayerMove(horizontalMovement);
+
         if (RigidPlayer.velocity.y == 0)
             isGrounded = true;
         else
@@ -72,6 +78,14 @@ public class Players : MonoBehaviour
         if (Input.GetKey(KeyCode.Escape))
         {
             SceneManager.LoadScene(2);
+        }
+
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            if (Sword01.swordweaponacquired == true)
+            {
+                attack = true;
+            }
         }
     }
 
@@ -107,6 +121,7 @@ public class Players : MonoBehaviour
         {
             GameObject SpriteLvl1 = GameObject.Find("SpriteLvl1");
             Destroy(SpriteLvl1);
+            // Need add the Number 2 Icon for the level
         }
         if (CurrentPlayerLevel == 3)
         {
@@ -114,12 +129,31 @@ public class Players : MonoBehaviour
             GameObject SpriteLvl2 = GameObject.Find("SpriteLvl2");
             Destroy(SpriteLvl1);
             Destroy(SpriteLvl2);
+            // Need add the Number 3 Icon for the level
         }
     }
 
     void Gold(float CurrentPlayerGold)
     {
         GoldNumber.GoldUI.text = CurrentPlayerGold.ToString();
+    }
+
+    void Exp(float CurrentPlayerExp)
+    {
+        ExpNumber.ExpUI.text = CurrentPlayerExp.ToString();
+    }
+
+    void ExpMax()
+    {
+        if (CurrentPlayerExp == 100)
+        {
+            CurrentPlayerLevel = 2;
+        }
+
+        if (CurrentPlayerExp == 200)
+        {
+            CurrentPlayerLevel = 3;
+        }
     }
 
     void Jump(float jumpforce)

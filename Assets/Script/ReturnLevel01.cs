@@ -7,6 +7,7 @@ public class ReturnLevel01 : MonoBehaviour
 {
     private Transform PlayerSpawnbis;
     public Players players;
+    public Gold Gold;
     void Start()
     {
 
@@ -23,6 +24,7 @@ public class ReturnLevel01 : MonoBehaviour
         {
             SceneManager.LoadScene(3);
             collision.transform.position = PlayerSpawnbis.position;
+            Destroy(Gold.gameObject);
         }
     }
 }
