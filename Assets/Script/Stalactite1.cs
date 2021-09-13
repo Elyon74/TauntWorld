@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Stalactite1 : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Stalactite1 : MonoBehaviour
     void Start()
     {
         Stalactite01 = GetComponent<Rigidbody2D>();
+        DamageStala = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -21,6 +23,13 @@ public class Stalactite1 : MonoBehaviour
         {
             Destroy(gameObject, (float)0.85);
         }
+
+        if (players.CurrentPlayerHP <= 0)
+        {
+            DamageStala.Play();
+            SceneManager.LoadScene(1);
+        }
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

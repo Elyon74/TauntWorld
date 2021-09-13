@@ -17,9 +17,9 @@ public class Lava : MonoBehaviour
 
     void Update()
     {
-        if (players.CurrentPlayerHP == 0)
+        if (players.CurrentPlayerHP <= 0)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
     }
 

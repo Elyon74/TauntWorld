@@ -18,9 +18,9 @@ public class Fire01 : MonoBehaviour
 
     void Update()
     {
-        if (players.CurrentPlayerHP == 0)
+        if (players.CurrentPlayerHP <= 0)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
 
         if (Sword01.swordweaponacquired == true)

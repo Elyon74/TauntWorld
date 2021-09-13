@@ -16,9 +16,10 @@ public class Water : MonoBehaviour
 
     void Update()
     {
-        if (players.CurrentPlayerHP == 0)
+        if (players.CurrentPlayerHP <= 0)
         {
-            SceneManager.LoadScene(0);
+            Damage.Play();
+            SceneManager.LoadScene(1);
         }
     }
     private void Awake()

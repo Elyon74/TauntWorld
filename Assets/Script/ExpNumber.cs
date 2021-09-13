@@ -6,16 +6,17 @@ using UnityEngine.UI;
 public class ExpNumber : MonoBehaviour
 {
 
-    public Text ExpUI;
+    Text ExpUI;
+    public Players players;
 
     void Start()
     {
-        
+        ExpUI = GameObject.Find("Text (1)").GetComponent<Text>();
     }
 
     void Update()
     {
-        
+        ExpUI.text = players.CurrentPlayerGold.ToString();
     }
 
 }

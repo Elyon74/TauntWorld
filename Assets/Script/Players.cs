@@ -22,13 +22,10 @@ public class Players : MonoBehaviour
     public Rigidbody2D RigidPlayer;
     public BoxCollider2D ColliderPlayer;
     public SpriteRenderer PlayerSpriteRenderer;
-    public GoldNumber GoldNumber;
-    public ExpNumber ExpNumber;
     public Sword01 Sword01;
     AudioSource jump;
 
-    // Vector 2 = Axe vertical, Vector 3 = Axe horizontal
-
+    // Vector 2 2D, Vector3 3D
     private void Awake()
     {
         PlayerSpriteRenderer = GetComponent<SpriteRenderer>();
@@ -46,50 +43,49 @@ public class Players : MonoBehaviour
     {
         HP(CurrentPlayerHP);
         Level(CurrentPlayerLevel);
-        Gold(CurrentPlayerGold);
         Jump(jumpforce);
         jump = GetComponent<AudioSource>();
 
         float horizontalMovement = Input.GetAxis("Horizontal") * walkspeed * Time.deltaTime;
-        PlayerMove(horizontalMovement);
+        PlayerMove2(horizontalMovement);
 
         if (RigidPlayer.velocity.y == 0)
             isGrounded = true;
         else
             isGrounded = false;
 
-        if (Input.GetKeyDown("q"))
-        {
-            if (PlayerSpriteRenderer != null)
+            if (Input.GetKeyDown("q"))
             {
-                PlayerSpriteRenderer.flipX = true;
+                if (PlayerSpriteRenderer != null)
+                {
+                    PlayerSpriteRenderer.flipX = true;
+                }
             }
-        }
 
-        if (Input.GetKeyDown("d"))
-        {
-            if (PlayerSpriteRenderer != null)
+            if (Input.GetKeyDown("d"))
             {
-                PlayerSpriteRenderer.flipX = false;
+                if (PlayerSpriteRenderer != null)
+                {
+                    PlayerSpriteRenderer.flipX = false;
 
+                }
             }
-        }
 
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            SceneManager.LoadScene(2);
-        }
-
-        if (Input.GetKey(KeyCode.Mouse0))
-        {
-            if (Sword01.swordweaponacquired == true)
+            if (Input.GetKey(KeyCode.Escape))
             {
-                attack = true;
+                SceneManager.LoadScene(2);
             }
-        }
+
+            if (Input.GetKey(KeyCode.Mouse0))
+            {
+                if (Sword01.swordweaponacquired == true)
+                {
+                    attack = true;
+                }
+            }
     }
 
-    void HP(float CurrentPlayerHP)
+    public void HP(float CurrentPlayerHP)
     {
         if (CurrentPlayerHP == 2)
         {
@@ -103,7 +99,7 @@ public class Players : MonoBehaviour
             Destroy(HP3);
             Destroy(HP2);
         }
-        if (CurrentPlayerHP == 0)
+        if (CurrentPlayerHP <= 0)
         {
             GameObject HP1 = GameObject.Find("Sprite-HP1");
             GameObject HP2 = GameObject.Find("Sprite-HP2");
@@ -111,40 +107,42 @@ public class Players : MonoBehaviour
             Destroy(HP3);
             Destroy(HP2);
             Destroy(HP1);
-            SceneManager.LoadScene(0);
         }
     }
 
-    void Level(float CurrentPlayerLevel)
+    public void Level(float CurrentPlayerLevel)
     {
-        if (CurrentPlayerLevel == 2)
+        if (CurrentPlayerLevel == 1)
         {
             GameObject SpriteLvl1 = GameObject.Find("SpriteLvl1");
-            Destroy(SpriteLvl1);
-            // Need add the Number 2 Icon for the level
         }
-        if (CurrentPlayerLevel == 3)
+
+        if (CurrentPlayerLevel == 2)
         {
             GameObject SpriteLvl1 = GameObject.Find("SpriteLvl1");
             GameObject SpriteLvl2 = GameObject.Find("SpriteLvl2");
             Destroy(SpriteLvl1);
+            Instantiate(SpriteLvl2, new Vector2((float)-4.01, (float)7.02), Quaternion.identity); // Need change the position just after Vector3 for screen position
+        }
+
+        if (CurrentPlayerLevel == 3)
+        {
+            GameObject SpriteLvl1 = GameObject.Find("SpriteLvl1");
+            GameObject SpriteLvl2 = GameObject.Find("SpriteLvl2");
+            GameObject SpriteLvl3 = GameObject.Find("SpriteLvl3");
+            Destroy(SpriteLvl1);
             Destroy(SpriteLvl2);
-            // Need add the Number 3 Icon for the level
+            Instantiate(SpriteLvl3, new Vector2((float)-4.01, (float)7.02), Quaternion.identity); // Need change the position just after Vector3 for screen position
         }
     }
 
-    void Gold(float CurrentPlayerGold)
+    public void ExpMax()
     {
-        GoldNumber.GoldUI.text = CurrentPlayerGold.ToString();
-    }
+        if (CurrentPlayerExp < 100)
+        {
+            CurrentPlayerLevel = 1;
+        }
 
-    void Exp(float CurrentPlayerExp)
-    {
-        ExpNumber.ExpUI.text = CurrentPlayerExp.ToString();
-    }
-
-    void ExpMax()
-    {
         if (CurrentPlayerExp == 100)
         {
             CurrentPlayerLevel = 2;
@@ -165,7 +163,7 @@ public class Players : MonoBehaviour
         }
     }
 
-    void PlayerMove(float _horizontalMovement)
+    void PlayerMove2(float _horizontalMovement)
     {
         Vector3 targetVelocity = new Vector2(_horizontalMovement, RigidPlayer.velocity.y);
         RigidPlayer.velocity = Vector3.SmoothDamp(RigidPlayer.velocity, targetVelocity, ref velocity, .05f);
@@ -175,4 +173,5 @@ public class Players : MonoBehaviour
             isJumping = false;
         }
     }
+
 }

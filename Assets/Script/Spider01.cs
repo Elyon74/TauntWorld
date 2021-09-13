@@ -19,7 +19,8 @@ public class Spider01 : MonoBehaviour
     {
         if (players.CurrentPlayerHP <= 0)
         {
-            SceneManager.LoadScene(3);
+            DamageSpider.Play();
+            SceneManager.LoadScene(1);
         }
         
     }
