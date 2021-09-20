@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Players : MonoBehaviour
 {
+    [SerializeField]
     public int MaxPlayerHP = 3;
     public int CurrentPlayerHP = 3;
     public int MaxPlayerGold = 999;
