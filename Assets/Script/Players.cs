@@ -45,6 +45,8 @@ public class Players : MonoBehaviour
         HP(CurrentPlayerHP);
         Level(CurrentPlayerLevel);
         Jump(jumpforce);
+        ExpMax();
+        Jump(jumpforce);
         jump = GetComponent<AudioSource>();
 
         float horizontalMovement = Input.GetAxis("Horizontal") * walkspeed * Time.deltaTime;
@@ -155,7 +157,7 @@ public class Players : MonoBehaviour
         }
     }
 
-    void Jump(float jumpforce)
+    public void Jump(float jumpforce)
     {
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
@@ -164,7 +166,7 @@ public class Players : MonoBehaviour
         }
     }
 
-    void PlayerMove2(float _horizontalMovement)
+    public void PlayerMove2(float _horizontalMovement)
     {
         Vector3 targetVelocity = new Vector2(_horizontalMovement, RigidPlayer.velocity.y);
         RigidPlayer.velocity = Vector3.SmoothDamp(RigidPlayer.velocity, targetVelocity, ref velocity, .05f);
