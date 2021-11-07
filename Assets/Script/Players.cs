@@ -44,20 +44,19 @@ public class Players : MonoBehaviour
     {
         HP(CurrentPlayerHP);
         Level(CurrentPlayerLevel);
-        Jump(jumpforce);
-        ExpMax();
-        Jump(jumpforce);
+        Jump(jumpforce, isJumping, isGrounded);
+        ExpMax(CurrentPlayerExp, CurrentPlayerLevel);
         jump = GetComponent<AudioSource>();
 
         float horizontalMovement = Input.GetAxis("Horizontal") * walkspeed * Time.deltaTime;
-        PlayerMove2(horizontalMovement);
+        PlayerMove2(horizontalMovement, isJumping);
 
         if (RigidPlayer.velocity.y == 0)
             isGrounded = true;
         else
             isGrounded = false;
 
-            if (Input.GetKeyDown("q"))
+            if (Input.GetKeyDown(KeyCode.Q))
             {
                 if (PlayerSpriteRenderer != null)
                 {
@@ -65,7 +64,7 @@ public class Players : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown("d"))
+            if (Input.GetKeyDown(KeyCode.D))
             {
                 if (PlayerSpriteRenderer != null)
                 {
@@ -88,7 +87,7 @@ public class Players : MonoBehaviour
             }
     }
 
-    public void HP(float CurrentPlayerHP)
+    public void HP(int CurrentPlayerHP)
     {
         if (CurrentPlayerHP == 2)
         {
@@ -113,7 +112,7 @@ public class Players : MonoBehaviour
         }
     }
 
-    public void Level(float CurrentPlayerLevel)
+    public void Level(int CurrentPlayerLevel)
     {
         if (CurrentPlayerLevel == 1)
         {
@@ -139,7 +138,7 @@ public class Players : MonoBehaviour
         }
     }
 
-    public void ExpMax()
+    public void ExpMax(int CurrentPlayerExp, int CurrentPlayerLevel)
     {
         if (CurrentPlayerExp < 100)
         {
@@ -157,7 +156,7 @@ public class Players : MonoBehaviour
         }
     }
 
-    public void Jump(float jumpforce)
+    public void Jump(float jumpforce, bool isJumping, bool isGrounded)
     {
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
@@ -166,7 +165,7 @@ public class Players : MonoBehaviour
         }
     }
 
-    public void PlayerMove2(float _horizontalMovement)
+    public void PlayerMove2(float _horizontalMovement, bool isJumping)
     {
         Vector3 targetVelocity = new Vector2(_horizontalMovement, RigidPlayer.velocity.y);
         RigidPlayer.velocity = Vector3.SmoothDamp(RigidPlayer.velocity, targetVelocity, ref velocity, .05f);
