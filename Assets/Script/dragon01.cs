@@ -17,7 +17,7 @@ public class dragon01 : MonoBehaviour
     public Rigidbody2D RigidPlayer;
     public BoxCollider2D ColliderPlayer;
     public SpriteRenderer PlayerSpriteRenderer;
-    AudioSource jump;
+    public AudioSource jump;
 
     void Start()
     {

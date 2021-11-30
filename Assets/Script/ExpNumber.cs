@@ -16,7 +16,7 @@ public class ExpNumber : MonoBehaviour
 
     void Update()
     {
-        ExpUI.text = players.CurrentPlayerGold.ToString();
+        //ExpUI.text = players.CurrentPlayerGold.ToString();
     }
 
 }

@@ -16,7 +16,7 @@ public class GoldNumber : MonoBehaviour
 
     void Update()
     {
-        GoldUI.text = players.CurrentPlayerGold.ToString();
+       // GoldUI.text = players.CurrentPlayerGold.ToString();
     }
 
 }
