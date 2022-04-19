@@ -7,9 +7,12 @@ public class Grotte3 : MonoBehaviour
 {
     private Transform PlayerSpawn2;
     public Players players;
+    AudioSource Grotte03;
+
     void Start()
     {
-
+        Grotte03 = GetComponent<AudioSource>();
+        Grotte03.Play();
     }
 
     void Update()

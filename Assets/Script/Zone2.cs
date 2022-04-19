@@ -7,9 +7,12 @@ public class Zone2 : MonoBehaviour
 {
     private Transform PlayerSpawn2;
     public Players players;
+    AudioSource Zone02;
+
     void Start()
     {
-
+        Zone02 = GetComponent<AudioSource>();
+        Zone02.Play();
     }
 
     void Update()

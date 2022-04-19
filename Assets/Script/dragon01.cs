@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class dragon01 : MonoBehaviour
+public class Dragon01 : MonoBehaviour
 {
     [SerializeField]
     public int MaxDragonHP = 3;
@@ -17,7 +17,6 @@ public class dragon01 : MonoBehaviour
     public Rigidbody2D RigidPlayer;
     public BoxCollider2D ColliderPlayer;
     public SpriteRenderer PlayerSpriteRenderer;
-    public AudioSource jump;
 
     void Start()
     {
